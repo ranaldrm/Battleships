@@ -60,7 +60,7 @@ public class Board {
 					}
 						
 					
-//this else refers to the IF statement checking if the ship was horizontal, the next code is the procedure for if vertical
+//this SELSE refers back to the IF statement checking if the ship was horizontal, the next code is the procedure for if vertical
 				} else { 
 					if (frontY +battleship.getSize() <= this.getSquares().length) {
 						readyToPlace = true;					

@@ -5,7 +5,7 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner scanner = new Scanner (System.in);
-		Board board = new Board (8, 8);
+		Board board = new Board (10, 10); //sets the board to ten spaces
 
 		board.placeShips(3);
 		
@@ -28,6 +28,7 @@ public class Main {
 			playerTwo.takeATurn();			
 		}
 		System.out.println("Good work! We've sent the enemy fleet to Davey Jones' locker.");
+		findWinner(playerOne, playerTwo);
 	}
 	
 	public static void scorePrinter (Player player) {
