@@ -9,7 +9,7 @@ public class Square {
 	
 	
 	public Square () {
-		hit = false;
+		hit = true;
 		
 	}
 

@@ -23,6 +23,10 @@ public class Battleship {
 		this.health = health;
 	}
 	
+	public void setSize (int size) {
+		this.size = size;
+	}
+	
 	public int getSize () {
 		return this.size;
 	}

@@ -27,6 +27,62 @@ public class Board {
 		}
 	}
 	
+	public void shipFactory (int numberBig, int numberMedium, int numberSmall) {
+		while (LargeBattleship.shipNo <= numberBig) {
+			LargeBattleship ship = new LargeBattleship ();
+			shipPlacer(ship);			
+		}
+		while (MediumBattleship.shipNo <= numberMedium) {
+			MediumBattleship ship = new MediumBattleship ();
+			shipPlacer (ship);
+		}
+		while (SmallBattleship.shipNo <= numberSmall ) {
+			SmallBattleship ship = new SmallBattleship ();
+			shipPlacer (ship);
+		}		
+	}
+	
+	public void shipPlacer (Battleship ship) {
+		boolean readyToPlace = false;
+		while (readyToPlace == false) {
+			boolean horizontal = random.nextBoolean();
+			int frontY = random.nextInt(this.getSquares().length);
+			int frontX = random.nextInt(this.getSquares().length);
+			
+			if (horizontal) {
+				if (frontX + ship.getSize() <= this.getSquares()[frontY].length) {
+					readyToPlace = true;
+					for (int i = frontX; i < frontX + ship.getSize(); i++) {
+						if (this.getSquares()[frontY] [i].getOccupied()) {
+							readyToPlace = false;
+						}					
+					}
+					if (readyToPlace) {
+						for (int j = frontX; j < frontX + ship.getSize(); j++) {
+							this.getSquares()[frontY] [j].setBattleship(ship);							
+						}
+					}
+				}				
+			} else {
+				if (frontY + ship.getSize() <= this.getSquares().length) {
+					readyToPlace = true;
+					for (int k = frontY; k < frontY + ship.getSize(); k ++) {
+						if (this.getSquares()[k][frontX].getOccupied()) {
+							readyToPlace = false;
+						}
+					}
+					if (readyToPlace) {
+						for (int l = frontY; l < frontY + ship.getSize(); l++) {
+							this.getSquares()[l][frontX].setBattleship(ship);	
+						
+						}
+					}				
+				}
+		 }
+	  }
+	}
+	
+	
 	public void placeShips (int number) { 
 //while-loop keeps placing ships until the static ship number entered is reached.
 		while (Battleship.shipNo <= number) {
@@ -57,9 +113,7 @@ public class Board {
 								this.getSquares()[frontY] [j].setBattleship(battleship);																				
 							}											
 						} 				
-					}
-						
-					
+					}											
 //this SELSE refers back to the IF statement checking if the ship was horizontal, the next code is the procedure for if vertical
 				} else { 
 					if (frontY +battleship.getSize() <= this.getSquares().length) {
@@ -75,8 +129,7 @@ public class Board {
 							}
 						}	
 					}				   								   
-			   }
-			  
+			   }			  
 	       }
 		}
 	}
