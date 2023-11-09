@@ -3,11 +3,11 @@ import java.util.Scanner;
 public class Main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
 		Scanner scanner = new Scanner (System.in);
 		Board board = new Board (10, 10); //sets the board to ten spaces
 
-		board.shipFactory(1,2,3);
+		board.shipFactory(1 ,2 , 3);
 		
 		System.out.println("Player 1. What is your name? ");
 		String nameOne = scanner.nextLine();
